@@ -1,0 +1,23 @@
+<i:arg type="com.fkrone.likensing.server.licensing.LicenseScope" name="scope"/>
+
+<w:page title="@scope.toString()">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/scopes">@i18n("LicenseScope.plural")</a>
+        </li>
+        <li>
+            <a href="/scope/@scope.getIdAsString()">@scope.toString()</a>
+        </li>
+    </i:block>
+    <w:editForm url="@apply('/scope/%s', scope.getIdAsString())">
+        <div class="row">
+            <w:textfield span="12" name="name" value="@scope.getName()" labelKey="Model.name" required="true"/>
+            <w:textfield span="12" name="uid" value="@scope.getUid()"
+                         labelKey="LicenseScope.uid" helpKey="LicenseScope.uid.help" required="true"/>
+        </div>
+    </w:editForm>
+
+    <w:formBar>
+        <w:tracing trace="scope.getTrace()"/>
+    </w:formBar>
+</w:page>

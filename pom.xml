@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.scireum</groupId>
+        <artifactId>sirius-parent</artifactId>
+        <version>3.14</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fkrone</groupId>
+    <artifactId>likensing-server</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Likensing Server</name>
+    <description>A server to generate licenses</description>
+    <url>https://github.com/fkrone/likensing-server</url>
+
+    <developers>
+        <developer>
+            <name>Fabian Krone</name>
+            <email>fkrone1993@gmail.com</email>
+            <organization/>
+            <organizationUrl/>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.owner>fkrone</project.owner>
+        <sds.skip>true</sds.skip>
+        <sirius.ideaExcludes>.idea/copyright/**</sirius.ideaExcludes>
+
+        <sirius.kernel>12.0-rc26</sirius.kernel>
+        <sirius.web>19.0-rc27</sirius.web>
+        <sirius.db>5.0-rc38</sirius.db>
+        <sirius.biz>7.0-rc23</sirius.biz>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-kernel</artifactId>
+            <version>${sirius.kernel}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-web</artifactId>
+            <version>${sirius.web}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-db</artifactId>
+            <version>${sirius.db}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-biz</artifactId>
+            <version>${sirius.biz}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-web</artifactId>
+            <version>${sirius.web}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-db</artifactId>
+            <version>${sirius.db}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-kernel</artifactId>
+            <version>${sirius.kernel}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.scireum</groupId>
+            <artifactId>sirius-biz</artifactId>
+            <version>${sirius.biz}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>

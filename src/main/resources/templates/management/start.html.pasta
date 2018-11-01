@@ -1,0 +1,6 @@
+<i:arg type="int" name="licensesGenerated"/>
+
+<w:page>
+    <w:heading labelKey="Start.welcome"/>
+    @i18n("Start.generatedLicenses"): @licensesGenerated
+</w:page>

@@ -1,0 +1,27 @@
+<i:arg type="com.fkrone.likensing.server.licensing.License" name="license"/>
+<i:arg type="List" name="scopeFeatures"/>
+
+<w:page titleKey="License.new">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/licenses">@i18n("License.plural")</a>
+        </li>
+        <li>
+            <a href="/license/new">@i18n("License.new")</a>
+        </li>
+    </i:block>
+    <w:editForm url="/license/new">
+        <div class="row">
+            <w:autocompleteSingleSelect name="scope" serviceUri="/scopes/autocomplete" labelKey="Model.licenseScope" required="true"/>
+            <w:datefield value="" name="validUntil" labelKey="License.validUntil" required="true" noPastDates="true"/>
+        </div>
+        <w:subHeading labelKey="ScopeFeature.plural"/>
+        <div class="row">
+            <i:for var="feature" type="com.fkrone.likensing.server.licensing.ScopeFeature" items="scopeFeatures">
+                <w:checkbox name="@feature.getCode()" value="false" label="@feature.getDisplayableName()"/>
+            </i:for>
+        </div>
+    </w:editForm>
+
+    <w:formBar/>
+</w:page>

@@ -1,0 +1,5 @@
+<w:loggedIn>
+    <w:menuItem titleKey="License.plural" url="/licenses"/>
+    <w:menuItem titleKey="LicenseScope.plural" url="/scopes"/>
+    <w:menuItem titleKey="ScopeFeature.plural" url="/features"/>
+</w:loggedIn>

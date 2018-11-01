@@ -1,0 +1,40 @@
+<i:arg type="Page" name="features"/>
+
+<w:page titleKey="ScopeFeature.plural">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/features">@i18n("ScopeFeature.plural")</a>
+        </li>
+    </i:block>
+
+    <w:pageHeader titleKey="ScopeFeature.plural"/>
+
+    <w:tableSearchHeader page="features" baseUrl="/features">
+        <a class="btn btn-primary" href="/feature/new">@i18n("Model.create")</a>
+    </w:tableSearchHeader>
+
+    <w:table data="features">
+        <thead>
+        <tr>
+            <th>
+                @i18n("Model.name")
+            </th>
+            <th/>
+        </tr>
+        </thead>
+        <tbody>
+        <i:for type="com.fkrone.likensing.server.licensing.ScopeFeature" var="feature" items="features.getItems()">
+            <tr>
+                <td>
+                    <a class="link" href="/feature/@feature.getId()">@feature.getDisplayableName()</a>
+                </td>
+                <td class="col-md-2 align-center">
+                    <w:deleteLink url="@apply('/feature/%s/delete', feature.getId())" page="features"/>
+                </td>
+            </tr>
+        </i:for>
+        </tbody>
+    </w:table>
+
+    <w:pagination page="features" baseUrl="/features"/>
+</w:page>

@@ -1,0 +1,23 @@
+<i:arg type="com.fkrone.likensing.server.licensing.ScopeFeature" name="feature"/>
+
+<w:page title="@feature.toString()">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/features">@i18n("ScopeFeature.plural")</a>
+        </li>
+        <li>
+            <a href="/feature/@feature.getIdAsString()">@feature.toString()</a>
+        </li>
+    </i:block>
+    <w:editForm url="@apply('/feature/%s', feature.getIdAsString())">
+        <div class="row">
+            <w:textfield span="12" name="code" value="@feature.getCode()" labelKey="Model.code" helpKey="ScopeFeature.code.help" required="true"/>
+            <w:textfield span="12" name="name" value="@feature.getName()"
+                         labelKey="Model.name" helpKey="ScopeFeature.name.help"/>
+        </div>
+    </w:editForm>
+
+    <w:formBar>
+        <w:tracing trace="feature.getTrace()"/>
+    </w:formBar>
+</w:page>

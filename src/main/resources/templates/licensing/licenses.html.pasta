@@ -1,0 +1,54 @@
+<i:arg type="Page" name="licenses"/>
+
+<w:page titleKey="License.plural">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/licenses">@i18n("License.plural")</a>
+        </li>
+    </i:block>
+
+    <w:pageHeader titleKey="License.plural"/>
+
+    <w:tableSearchHeader page="licenses" baseUrl="/licenses">
+        <a class="btn btn-primary" href="/license/new">@i18n("Model.create")</a>
+    </w:tableSearchHeader>
+
+    <w:table data="licenses">
+        <thead>
+        <tr>
+            <th>
+                @i18n("Model.licenseScope")
+            </th>
+            <th>
+                @i18n("License.createdAt")
+            </th>
+            <th>
+                @i18n("License.validUntil")
+            </th>
+            <th>
+                @i18n("License.stillValid")
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <i:for type="com.fkrone.likensing.server.licensing.License" var="license" items="licenses.getItems()">
+            <tr>
+                <td>
+                    <a class="link" href="/license/@license.getId()">@license.getScope().getValue().as(com.fkrone.likensing.server.licensing.LicenseScope.class).getName()</a>
+                </td>
+                <td>
+                    @toUserString(license.getTrace().getCreatedAt())
+                </td>
+                <td>
+                    @toUserString(license.getValidUntil())
+                </td>
+                <td>
+                    @toUserString(license.isValid())
+                </td>
+            </tr>
+        </i:for>
+        </tbody>
+    </w:table>
+
+    <w:pagination page="licenses" baseUrl="/licenses"/>
+</w:page>

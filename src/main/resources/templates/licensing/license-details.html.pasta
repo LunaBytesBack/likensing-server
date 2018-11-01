@@ -1,0 +1,30 @@
+<i:arg type="com.fkrone.likensing.server.licensing.License" name="license"/>
+<i:arg type="List" name="availableFeatures"/>
+
+<w:page titleKey="Model.license">
+    <i:block name="breadcrumbs">
+        <li>
+            <a href="/licenses">@i18n("License.plural")</a>
+        </li>
+        <li>
+            <a href="/license/@license.getIdAsString()">@i18n("Model.license")</a>
+        </li>
+    </i:block>
+    <div class="row">
+        <w:textfield span="6" name="" value="@license.getScope().getValue().as(com.fkrone.likensing.server.licensing.LicenseScope.class).getName()" labelKey="Model.licenseScope" readonly="true"/>
+        <w:textfield span="6" name="" value="@toUserString(license.getValidUntil())" labelKey="License.validUntil" readonly="true"/>
+    </div>
+    <w:subHeading labelKey="ScopeFeature.plural"/>
+    <div class="row">
+        <i:for var="feature" type="com.fkrone.likensing.server.licensing.ScopeFeature" items="availableFeatures">
+            <w:checkbox name="" value="@license.getLicensedFeaturesList().contains(feature.getCode())" label="@feature.getDisplayableName()" readonly="true"/>
+        </i:for>
+    </div>
+
+    <w:subHeading labelKey="License.licenseKey"/>
+    <div class="row">
+        <w:textarea span="12" rows="10" name="licenseKey" value="@license.getLicenseKey()" labelKey="License.licenseKey" readonly="true"/>
+    </div>
+
+    <w:tracing trace="license.getTrace()"/>
+</w:page>
